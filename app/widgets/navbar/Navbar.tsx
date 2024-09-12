@@ -56,12 +56,12 @@ export const Navbar = () => {
           {links.map((link) => (
             <Link
               href={link.href}
-              className="flex items-center gap-5 p-3 rounded-full hover:bg-zinc-900"
+              className="flex w-fit items-center p-3 rounded-full hover:bg-zinc-900"
               key={link.id}
             >
               {link.icon}
               <h5
-                className={clsx("text-xl", {
+                className={clsx("text-xl mx-5", {
                   "font-bold": pathname === link.href,
                 })}
               >
