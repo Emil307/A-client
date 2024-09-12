@@ -54,17 +54,20 @@ export const Navbar = () => {
         <>A</>
         <div className="flex flex-col mt-0.5 mb-1">
           {links.map((link) => (
-            <div className="flex items-center gap-5 p-3" key={link.id}>
+            <Link
+              href={link.href}
+              className="flex items-center gap-5 p-3 rounded-full hover:bg-zinc-900"
+              key={link.id}
+            >
               {link.icon}
-              <Link
-                href={link.href}
+              <h5
                 className={clsx("text-xl", {
                   "font-bold": pathname === link.href,
                 })}
               >
                 {link.title}
-              </Link>
-            </div>
+              </h5>
+            </Link>
           ))}
         </div>
       </div>
