@@ -7,10 +7,23 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
+    },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        blue: "#1D9Bf0",
+        white: "#FFF",
+        textWhite: "#E7E9EA",
+        textGray: "#71767B",
+        textBlack: "#0F1419",
+        borderColor: "rgb(47, 51, 54)",
+      },
+      borderWidth: {
+        sm: "1px",
       },
     },
   },

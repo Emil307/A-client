@@ -85,8 +85,8 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col gap-2 px-2 w-64 ">
-      <div>
+    <div className="flex flex-col gap-2 px-2 w-72 border-r-sm border-borderColor">
+      <div className="pr-4">
         <Link
           href="/home"
           className="flex mt-1 justify-center items-center w-12 h-12 rounded-full hover:bg-zinc-900"
@@ -121,9 +121,9 @@ export const Navbar = () => {
           size={"lg"}
           fontSize={"1rem"}
           fontWeight={"bold"}
-          color={"white"}
           width={"100%"}
           rounded={"full"}
+          color={"white"}
           colorScheme="cyan"
         >
           Post
