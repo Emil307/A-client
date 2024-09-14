@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/ui/styles/global.css";
 import { inter } from "@/app/ui/styles/fonts";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "A - Главное происходит здесь",
@@ -16,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${inter.className} antialiased bg-black text-white`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
