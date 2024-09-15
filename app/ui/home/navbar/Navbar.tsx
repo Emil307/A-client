@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Button } from "@chakra-ui/react";
+import { Profile } from "@/app/ui/home/profile";
 
 const links = [
   {
@@ -85,8 +86,8 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col gap-2 px-2 w-72 h-screen border-r-sm border-borderColor">
-      <div className="pr-4">
+    <div className="flex flex-col gap-8 px-2 pr-4 w-72 h-screen border-r-sm border-borderColor">
+      <div className="flex flex-col gap-1">
         <Link
           href="/home"
           className="flex mt-1 justify-center items-center w-12 h-12 rounded-full hover:bg-zinc-900"
@@ -129,7 +130,7 @@ export const Navbar = () => {
           Post
         </Button>
       </div>
-      <div className="p-3">profile</div>
+      <Profile />
     </div>
   );
 };
