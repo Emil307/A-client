@@ -22,6 +22,9 @@ const config: Config = {
         textBlack: "#0F1419",
         borderColor: "rgb(47, 51, 54)",
       },
+      width: {
+        xlContainer: "1200px",
+      },
       borderWidth: {
         sm: "1px",
       },
