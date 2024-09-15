@@ -125,7 +125,7 @@ export const Navbar = () => {
           width={"100%"}
           rounded={"full"}
           color={"white"}
-          colorScheme="cyan"
+          colorScheme="blue"
         >
           Post
         </Button>
