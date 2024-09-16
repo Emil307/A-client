@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { PostCard } from "@/app/ui/home/PostCard";
+import { Loader } from "@/app/ui/shared/Loader";
 import { usePostsStore } from "@/app/store/posts";
 import { getPosts } from "@/app/api/posts";
 
@@ -32,7 +33,11 @@ export const PostList: React.FC = () => {
 
   return (
     <div className="h-5/6 overflow-y-auto">
-      {isLoading && <>Loading...</>}
+      {isLoading && (
+        <div className="flex w-full h-16 items-center justify-center">
+          <Loader />
+        </div>
+      )}
       {posts && posts.map((post) => <PostCard post={post} key={post.id} />)}
     </div>
   );
