@@ -5,6 +5,7 @@ import { Button } from "@chakra-ui/react";
 import TextareaAutosize from "react-textarea-autosize";
 import { createPost } from "@/app/api/posts";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { usePostsStore } from "@/app/store/posts";
 
 interface IFormFileds {
   text: string;
@@ -18,10 +19,13 @@ export const PostForm = () => {
     formState: { isSubmitting },
   } = useForm<IFormFileds>();
 
+  const addPost = usePostsStore((post) => post.addPost);
+
   const onSubmit: SubmitHandler<IFormFileds> = async (data) => {
     await createPost(data.text)
-      .then(() => {
+      .then((res) => {
         reset();
+        addPost(res);
       })
       .catch((e) => {
         console.log(e);
