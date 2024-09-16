@@ -17,18 +17,20 @@ export const PostList: React.FC = () => {
   }, []);
 
   async function handleGetPosts() {
-    setIsLoading(true);
+    if (posts.length === 0) {
+      setIsLoading(true);
 
-    getPosts()
-      .then((res) => {
-        setPosts(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      getPosts()
+        .then((res) => {
+          setPosts(res);
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   }
 
   return (
