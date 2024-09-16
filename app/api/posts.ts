@@ -14,3 +14,19 @@ export async function getPosts() {
 
   return data.data;
 }
+
+export async function createPost(text: string) {
+  const data = await axios({
+    url: `${API}/posts/`,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Headers": "*",
+    },
+    data: {
+      body: text,
+    },
+  });
+
+  return data.data;
+}
