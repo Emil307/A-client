@@ -1,11 +1,11 @@
-import { Post } from "@/app/ui/home/Post";
 import { PostForm } from "@/app/ui/home/PostForm";
+import { Postist } from "@/app/ui/home/PostList/PostList";
 
 export default function Page() {
   return (
-    <div className="w-full border-r-sm border-borderColor">
+    <div className="w-full h-screen border-r-sm border-borderColor">
       <PostForm />
-      <Post />
+      <Postist />
     </div>
   );
 }

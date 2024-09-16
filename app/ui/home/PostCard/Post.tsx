@@ -1,6 +1,11 @@
 import React from "react";
+import { IPost } from "@/app/types/post";
 
-export const Post: React.FC = () => {
+interface IPostCard {
+  post: IPost;
+}
+
+export const PostCard: React.FC<IPostCard> = ({ post }) => {
   return (
     <div className="flex flex-col gap-2 px-4 py-3 border-b-sm border-borderColor">
       <div>
@@ -10,14 +15,12 @@ export const Post: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div className="flex gap-2">
-              <h1 className="font-bold text-textWhite">Alex Jones </h1>
-              <span className="text-textGray">@cb_doge · 17h</span>
+              <h1 className="font-bold text-textWhite">{post.author}</h1>
+              <span className="text-textGray">
+                {post.tag} · {post.created}
+              </span>
             </div>
-            <p>
-              Coverup of Trump Assassination Attempt Officially Collapses – Top
-              Democrats Admit Secret Service Stood Down & The DHS/DOJ Are
-              Involved In A Massive Coverup!
-            </p>
+            <p>{post.body}</p>
           </div>
         </div>
       </div>
