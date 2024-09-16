@@ -35,7 +35,7 @@ export const PostList: React.FC = () => {
 
   return (
     <div className="h-5/6 overflow-y-auto">
-      {isLoading && (
+      {isLoading && posts.length === 0 && (
         <div className="flex w-full h-16 items-center justify-center">
           <Loader />
         </div>
