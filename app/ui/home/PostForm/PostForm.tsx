@@ -14,13 +14,14 @@ export const PostForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    reset,
+    formState: { isSubmitting },
   } = useForm<IFormFileds>();
 
   const onSubmit: SubmitHandler<IFormFileds> = async (data) => {
     await createPost(data.text)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        reset();
       })
       .catch((e) => {
         console.log(e);
