@@ -8,6 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (getCookie("access")) {
       navigate("/home");
+      return;
     }
   }, []);
 

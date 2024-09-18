@@ -1,4 +1,5 @@
 "use client";
+
 import { login, registration } from "@/app/api/auth";
 import { setCookie } from "@/app/lib/coockies";
 import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
@@ -30,6 +31,7 @@ export default function Page() {
             setCookie("access", res.data.accessToken, {
               secure: "secure",
             });
+            localStorage.setItem("userId", res.data.user.id);
             navigate("/home");
           })
           .catch((e) => {
