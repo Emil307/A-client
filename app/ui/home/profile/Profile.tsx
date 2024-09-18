@@ -24,15 +24,6 @@ export const Profile: React.FC = () => {
   }, []);
 
   function handleLogout() {
-    useUserStore.setState({
-      user: {
-        id: 0,
-        name: "",
-        tag: "",
-        email: "",
-        createdAt: new Date(),
-      },
-    });
     localStorage.removeItem("user");
     setCookie("access", "", "");
     location.reload();
