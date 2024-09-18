@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie } from "@/app/lib/coockies";
 
-const API = "http://localhost:8080";
+const API = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getUser(userId: number) {
   const data = await axios({
