@@ -2,7 +2,12 @@ import axios from "axios";
 
 const API = "http://localhost:8080";
 
-export const registration = async (email: string, password: string) => {
+export const registration = async (
+  name: string,
+  tag: string,
+  email: string,
+  password: string
+) => {
   const res = await axios({
     url: `${API}/users`,
     method: "POST",
@@ -11,6 +16,8 @@ export const registration = async (email: string, password: string) => {
       "Access-Control-Allow-Headers": "*",
     },
     data: {
+      name: name,
+      tag: `@${tag}`,
       email: email,
       password: password,
     },

@@ -8,6 +8,8 @@ import { navigate } from "@/app/lib/clientRedirect";
 import Link from "next/link";
 
 interface IFormFileds {
+  name: string;
+  tag: string;
   email: string;
   password: string;
 }
@@ -20,7 +22,7 @@ export default function Page() {
   } = useForm<IFormFileds>();
 
   const onSubmit: SubmitHandler<IFormFileds> = async (data) => {
-    await registration(data.email, data.password)
+    await registration(data.name, data.tag, data.email, data.password)
       .then(() => {
         login(data.email, data.password)
           .then((res) => {
@@ -46,6 +48,34 @@ export default function Page() {
         className="flex flex-col gap-8 text-black"
       >
         <h2>Регистрация</h2>
+        <FormControl isInvalid={Boolean(errors.name)}>
+          <FormLabel className="text-black">Имя *</FormLabel>
+          <Input
+            id="name"
+            {...register("name", {
+              required: "Обязательное поле",
+            })}
+            placeholder="Алан Тьюринг"
+            type="text"
+            size="sm"
+            variant="flushed"
+          />
+          {errors.name && <p className="text-red">{errors.name.message}</p>}
+        </FormControl>
+        <FormControl isInvalid={Boolean(errors.tag)}>
+          <FormLabel className="text-black">Псевдоним *</FormLabel>
+          <Input
+            id="tag"
+            {...register("tag", {
+              required: "Обязательное поле",
+            })}
+            placeholder=""
+            type="text"
+            size="sm"
+            variant="flushed"
+          />
+          {errors.tag && <p className="text-red">{errors.tag.message}</p>}
+        </FormControl>
         <FormControl isInvalid={Boolean(errors.email)}>
           <FormLabel className="text-black">E-mail *</FormLabel>
           <Input
@@ -80,7 +110,7 @@ export default function Page() {
           borderRadius="8px"
           isLoading={isSubmitting}
         >
-          Войти
+          Зарегистрироваться
         </Button>
         <Link href="/auth/signIn">Уже есть аккаунт? Войти</Link>
       </form>

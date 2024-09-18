@@ -15,9 +15,9 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
           </div>
           <div className="flex flex-col">
             <div className="flex gap-2">
-              <h1 className="font-bold text-textWhite">{post.author}</h1>
+              <h1 className="font-bold text-textWhite">{post.owner.name}</h1>
               <span className="text-textGray">
-                {post.tag} · {post.created}
+                {post.owner.tag} · {post.createdAt}
               </span>
             </div>
             <p>{post.body}</p>

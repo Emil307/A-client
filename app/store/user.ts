@@ -9,6 +9,8 @@ interface IUserState {
 export const useUserStore = create<IUserState>((set) => ({
   user: {
     id: 0,
+    name: "",
+    tag: "",
     email: "",
     createdAt: new Date(),
   },

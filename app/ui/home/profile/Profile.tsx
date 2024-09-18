@@ -11,9 +11,9 @@ export const Profile: React.FC = () => {
       <div className="flex w-11 h-11 rounded-full bg-orange-800"></div>
       <div className="flex flex-col items-start">
         <h1 className="font-bold text-textWhite text-sm leading-5">
-          {user.email}
+          {user.name}
         </h1>
-        <span className="text-textGray text-sm leading-5">@cb_doge</span>
+        <span className="text-textGray text-sm leading-5">{user.tag}</span>
       </div>
     </button>
   );
