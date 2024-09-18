@@ -5,6 +5,7 @@ import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { navigate } from "@/app/lib/clientRedirect";
+import Link from "next/link";
 
 interface IFormFileds {
   email: string;
@@ -38,6 +39,7 @@ export default function Page() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-8 text-black"
       >
+        <h2>Вход</h2>
         <FormControl isInvalid={Boolean(errors.email)}>
           <FormLabel className="text-black">E-mail *</FormLabel>
           <Input
@@ -74,6 +76,7 @@ export default function Page() {
         >
           Войти
         </Button>
+        <Link href="/auth/signUp">Нет аккаунта? Зарегистрироваться</Link>
       </form>
     </>
   );
