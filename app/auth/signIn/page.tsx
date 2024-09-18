@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { navigate } from "@/app/lib/clientRedirect";
 import Link from "next/link";
+import { useUserStore } from "@/app/store/user";
 
 interface IFormFileds {
   email: string;
@@ -19,6 +20,8 @@ export default function Page() {
     formState: { errors, isSubmitting },
   } = useForm<IFormFileds>();
 
+  const setUser = useUserStore((user) => user.setUser);
+
   const onSubmit: SubmitHandler<IFormFileds> = async (data) => {
     await login(data.email, data.password)
       .then((res) => {
@@ -26,6 +29,7 @@ export default function Page() {
         setCookie("access", res.data.accessToken, {
           secure: "secure",
         });
+        setUser(res.data.user);
         navigate("/home");
       })
       .catch(() => {
