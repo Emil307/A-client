@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie } from "@/app/lib/coockies";
 
 const API = "http://localhost:8080";
 
@@ -9,6 +10,7 @@ export async function getPosts() {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Headers": "*",
+      Authorization: `Bearer ${getCookie("access")}`,
     },
   });
 
@@ -22,6 +24,7 @@ export async function createPost(text: string) {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Headers": "*",
+      Authorization: `Bearer ${getCookie("access")}`,
     },
     data: {
       body: text,
