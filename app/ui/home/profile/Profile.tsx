@@ -1,13 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useUserStore } from "@/app/store/user";
 import { Menu, MenuButton, MenuItem, MenuList, Portal } from "@chakra-ui/react";
 import Image from "next/image";
 import { setCookie } from "@/app/lib/coockies";
+import { getUser } from "@/app/api/users";
 
 export const Profile: React.FC = () => {
   const user = useUserStore((user) => user.user);
+  const setUser = useUserStore((user) => user.setUser);
+
+  useEffect(() => {
+    const userId = Number(localStorage.getItem("userId"));
+
+    getUser(userId)
+      .then((res) => {
+        setUser(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   function handleLogout() {
     useUserStore.setState({
