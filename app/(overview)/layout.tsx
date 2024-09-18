@@ -1,10 +1,21 @@
-import { Navbar } from "@/app/widgets/navbar";
+"use client";
+
+import { useEffect } from "react";
+import { Navbar } from "@/app/ui/home/navbar";
+import { getCookie } from "@/app/lib/coockies";
+import { navigate } from "@/app/lib/clientRedirect";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if (!getCookie("access")) {
+      navigate("/auth/signIn");
+    }
+  }, []);
+
   return (
-    <div className="flex">
+    <div className="flex w-xlContainer mx-auto">
       <Navbar />
-      <>{children}</>
+      {children}
     </div>
   );
 }
