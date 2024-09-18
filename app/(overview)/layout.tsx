@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="flex w-xlContainer mx-auto">
+    <div className="flex w-full max-w-7xl mx-auto">
       <Navbar />
       {children}
     </div>

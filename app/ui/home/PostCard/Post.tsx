@@ -7,7 +7,7 @@ interface IPostCard {
 
 export const PostCard: React.FC<IPostCard> = ({ post }) => {
   return (
-    <div className="flex flex-col gap-2 px-4 py-3 border-b-sm border-borderColor">
+    <div className="w-full flex flex-col gap-2 px-4 py-3 border-b-sm border-borderColor">
       <div>
         <div className="flex gap-2">
           <div className="flex items-center justify-center w-11 h-11">
@@ -26,7 +26,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
                 })}
               </span>
             </div>
-            <p>{post.body}</p>
+            <p className="w-full break-all">{post.body}</p>
           </div>
         </div>
       </div>
