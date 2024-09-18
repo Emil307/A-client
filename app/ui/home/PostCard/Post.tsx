@@ -17,7 +17,13 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
             <div className="flex gap-2">
               <h1 className="font-bold text-textWhite">{post.owner.name}</h1>
               <span className="text-textGray">
-                {post.owner.tag} · {post.createdAt}
+                {post.owner.tag} ·{" "}
+                {new Date(post.createdAt).toLocaleDateString("en-us", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
               </span>
             </div>
             <p>{post.body}</p>
