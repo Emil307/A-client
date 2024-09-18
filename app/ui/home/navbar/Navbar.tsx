@@ -109,7 +109,7 @@ export const Navbar = () => {
             >
               {link.icon}
               <h5
-                className={clsx("text-xl mx-5", {
+                className={clsx("text-xl mx-5 hidden md:block", {
                   "font-bold": pathname === link.href,
                 })}
               >
@@ -122,12 +122,19 @@ export const Navbar = () => {
           size={"lg"}
           fontSize={"1rem"}
           fontWeight={"bold"}
-          width={"100%"}
           rounded={"full"}
           color={"white"}
           colorScheme="blue"
+          className="w-12 p-0 md:w-full"
         >
-          Post
+          <div className="hidden md:block">Post</div>
+          <Image
+            className="min-w-5 min-h-5 block md:hidden"
+            src={"assets/icons/add.svg"}
+            width={20}
+            height={20}
+            alt="add post"
+          />
         </Button>
       </div>
       <Profile />
