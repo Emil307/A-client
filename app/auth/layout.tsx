@@ -14,7 +14,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex h-screen items-center justify-center bg-blue-400">
-      <div className="p-4 rounded-xl bg-white min-w-96">{children}</div>
+      <div className="p-4 rounded-xl min-w-96 border-sm border-borderColor">
+        {children}
+      </div>
     </div>
   );
 }
