@@ -6,6 +6,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { createPost } from "@/app/api/posts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { usePostsStore } from "@/app/store/posts";
+import Image from "next/image";
 
 interface IFormFileds {
   text: string;
@@ -43,7 +44,13 @@ export const PostForm: React.FC<IPostFormProps> = ({ predecessorId }) => {
     >
       <div className="w-full flex gap-2">
         <div className="flex items-center justify-center w-11 h-11 mt-1">
-          <div className="w-10 h-10 rounded-full bg-orange-800"></div>
+          <Image
+            src="/assets/icons/user.svg"
+            priority
+            width={40}
+            height={40}
+            alt="user"
+          />
         </div>
         <TextareaAutosize
           {...register("text", {
