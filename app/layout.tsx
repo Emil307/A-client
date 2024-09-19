@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "A - Главное происходит здесь",
   description:
     "Главные новости, развлечения, спорт и политика — узнавайте обо всем и читайте комментарии в реальном времени.",
+  icons: {
+    icon: "/assets/icons/x-logo.svg",
+  },
 };
 
 export default function RootLayout({
