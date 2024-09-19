@@ -36,7 +36,13 @@ export const Profile: React.FC = () => {
         className="rounded-full cursor-pointer p-3 hover:bg-zinc-900"
       >
         <div className="w-full flex gap-2 items-center">
-          <div className="flex w-11 h-11 rounded-full bg-orange-800"></div>
+          <Image
+            src="/assets/icons/user.svg"
+            priority
+            width={44}
+            height={44}
+            alt="user"
+          />
           <div className="flex flex-col items-start">
             <h1 className="font-bold text-textWhite text-sm leading-5">
               {user.name}

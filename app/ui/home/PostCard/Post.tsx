@@ -25,16 +25,19 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
         });
     }
   }, []);
-
-  console.log(predecessorOwner?.name);
-
   return (
     <>
       <div className="w-full flex flex-col gap-2 px-4 py-3 border-t-sm border-borderColor">
         <div>
           <div className="flex gap-2">
             <div className="flex items-center justify-center w-11 h-11">
-              <div className="w-10 h-10 rounded-full bg-orange-800"></div>
+              <Image
+                src="/assets/icons/user.svg"
+                priority
+                width={40}
+                height={40}
+                alt="user"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
@@ -68,7 +71,13 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
           <div className="p-3 rounded-md border-sm border-borderColor">
             <div className="flex gap-2">
               <div className="flex items-center justify-center w-11 h-11">
-                <div className="w-10 h-10 rounded-full bg-orange-800"></div>
+                <Image
+                  src="/assets/icons/user.svg"
+                  priority
+                  width={40}
+                  height={40}
+                  alt="user"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
