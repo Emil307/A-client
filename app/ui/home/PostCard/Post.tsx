@@ -16,7 +16,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
 
   useEffect(() => {
     if (post.predecessor) {
-      getUser(post.predecessor.id)
+      getUser(post.predecessor.ownerId)
         .then((res) => {
           setPredecessorOwner(res);
         })
@@ -25,6 +25,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
         });
     }
   }, []);
+
   return (
     <>
       <div className="w-full flex flex-col gap-2 px-4 py-3 border-t-sm border-borderColor">
