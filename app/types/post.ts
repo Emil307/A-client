@@ -5,4 +5,5 @@ export interface IPost {
   body: string;
   createdAt: Date;
   owner: IUser;
+  predecessor: IPost;
 }
