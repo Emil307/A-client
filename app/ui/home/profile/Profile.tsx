@@ -33,9 +33,9 @@ export const Profile: React.FC = () => {
     <Menu>
       <MenuButton
         as={"div"}
-        className="rounded-full cursor-pointer p-3 hover:bg-zinc-900"
+        className="rounded-full cursor-pointer md:p-3 hover:bg-zinc-900"
       >
-        <div className="w-full flex gap-2 items-center">
+        <div className="w-full flex gap-2 items-center justify-center md:justify-normal">
           <Image
             src="/assets/icons/user.svg"
             priority
@@ -43,7 +43,7 @@ export const Profile: React.FC = () => {
             height={44}
             alt="user"
           />
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start hidden md:block">
             <h1 className="font-bold text-textWhite text-sm leading-5">
               {user.name}
             </h1>

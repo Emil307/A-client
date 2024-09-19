@@ -21,7 +21,7 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col gap-8 px-2 pr-4 w-72 h-screen border-r-sm border-borderColor">
+    <div className="flex flex-col gap-4 px-2 md:pr-4 w-fit md:w-72 h-screen border-r-sm border-borderColor">
       <div className="flex flex-col gap-1">
         <Link
           href="/home"
@@ -44,7 +44,7 @@ export const Navbar = () => {
             >
               {link.icon}
               <h5
-                className={clsx("text-xl mx-5", {
+                className={clsx("text-xl mx-5 hidden md:block", {
                   "font-bold": pathname === link.href,
                 })}
               >
