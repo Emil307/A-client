@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { Button } from "@chakra-ui/react";
 import { Profile } from "@/app/ui/home/profile";
 
 const links = [
@@ -15,70 +14,6 @@ const links = [
       <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
     ),
     href: "/home",
-  },
-  {
-    id: 2,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 3,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 4,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 5,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 6,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 7,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 8,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
-  },
-  {
-    id: 9,
-    title: "Explore",
-    icon: (
-      <Image src={"assets/icons/home.svg"} width={26} height={26} alt="home" />
-    ),
-    href: "/explore",
   },
 ];
 
@@ -118,17 +53,6 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <Button
-          size={"lg"}
-          fontSize={"1rem"}
-          fontWeight={"bold"}
-          width={"100%"}
-          rounded={"full"}
-          color={"white"}
-          colorScheme="blue"
-        >
-          Post
-        </Button>
       </div>
       <Profile />
     </div>

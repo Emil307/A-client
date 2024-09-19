@@ -17,7 +17,7 @@ export async function getPosts() {
   return data.data;
 }
 
-export async function createPost(text: string) {
+export async function createPost(text: string, predecessorId?: number) {
   const data = await axios({
     url: `${API}/posts/`,
     method: "POST",
@@ -28,6 +28,7 @@ export async function createPost(text: string) {
     },
     data: {
       body: text,
+      predecessorId: predecessorId,
     },
   });
 

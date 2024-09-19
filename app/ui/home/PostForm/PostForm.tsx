@@ -11,7 +11,11 @@ interface IFormFileds {
   text: string;
 }
 
-export const PostForm = () => {
+interface IPostFormProps {
+  predecessorId?: number;
+}
+
+export const PostForm: React.FC<IPostFormProps> = ({ predecessorId }) => {
   const {
     register,
     handleSubmit,
@@ -22,7 +26,7 @@ export const PostForm = () => {
   const addPost = usePostsStore((post) => post.addPost);
 
   const onSubmit: SubmitHandler<IFormFileds> = async (data) => {
-    await createPost(data.text)
+    await createPost(data.text, predecessorId)
       .then((res) => {
         reset();
         addPost(res);
@@ -35,7 +39,7 @@ export const PostForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col items-end w-full h-fit p-4 border-b-sm border-borderColor"
+      className="flex flex-col items-end w-full h-fit p-4"
     >
       <div className="w-full flex gap-2">
         <div className="flex items-center justify-center w-11 h-11 mt-1">
