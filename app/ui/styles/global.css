@@ -26,3 +26,18 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(47, 51, 54);
+  border-radius: 16px;
+}
