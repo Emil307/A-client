@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { IPost } from "@/app/types/post";
 import { ReplyPopup } from "@/app/ui/home/ReplyPopup";
 import { useDisclosure } from "@chakra-ui/react";
+import { getUser } from "@/app/api/users";
+import { IUser } from "@/app/types/user";
 
 interface IPostCard {
   post: IPost;
@@ -10,6 +12,21 @@ interface IPostCard {
 
 export const PostCard: React.FC<IPostCard> = ({ post }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [predecessorOwner, setPredecessorOwner] = useState<IUser | null>(null);
+
+  useEffect(() => {
+    if (post.predecessor) {
+      getUser(post.predecessor.id)
+        .then((res) => {
+          setPredecessorOwner(res);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, []);
+
+  console.log(predecessorOwner?.name);
 
   return (
     <>
@@ -47,9 +64,39 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
             </div>
           </div>
         </div>
-        {post.predecessor && (
+        {post.predecessor && predecessorOwner && (
           <div className="p-3 rounded-md border-sm border-borderColor">
-            {post.predecessor.body}
+            <div className="flex gap-2">
+              <div className="flex items-center justify-center w-11 h-11">
+                <div className="w-10 h-10 rounded-full bg-orange-800"></div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2">
+                  <h1 className="font-bold text-textWhite">
+                    {predecessorOwner?.name}
+                  </h1>
+                  <span className="text-textGray">
+                    {predecessorOwner?.tag} ·{" "}
+                    {new Date(post.createdAt).toLocaleDateString("en-us", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
+                </div>
+                <p className="w-full break-all">{post.predecessor.body}</p>
+                <button onClick={onOpen}>
+                  <Image
+                    src="/assets/icons/reply.svg"
+                    priority
+                    width={24}
+                    height={24}
+                    alt="reply"
+                  />
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
