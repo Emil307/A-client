@@ -47,11 +47,11 @@ export default function Page() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-8 text-black"
+        className="flex flex-col gap-8 text-white"
       >
         <h2>Регистрация</h2>
         <FormControl isInvalid={Boolean(errors.name)}>
-          <FormLabel className="text-black">Имя *</FormLabel>
+          <FormLabel className="text-white">Имя *</FormLabel>
           <Input
             id="name"
             {...register("name", {
@@ -65,7 +65,7 @@ export default function Page() {
           {errors.name && <p className="text-red">{errors.name.message}</p>}
         </FormControl>
         <FormControl isInvalid={Boolean(errors.tag)}>
-          <FormLabel className="text-black">Псевдоним *</FormLabel>
+          <FormLabel className="text-white">Псевдоним *</FormLabel>
           <Input
             id="tag"
             {...register("tag", {
@@ -79,7 +79,7 @@ export default function Page() {
           {errors.tag && <p className="text-red">{errors.tag.message}</p>}
         </FormControl>
         <FormControl isInvalid={Boolean(errors.email)}>
-          <FormLabel className="text-black">E-mail *</FormLabel>
+          <FormLabel className="text-white">E-mail *</FormLabel>
           <Input
             id="email"
             {...register("email", {
@@ -93,7 +93,7 @@ export default function Page() {
           {errors.email && <p className="text-red">{errors.email.message}</p>}
         </FormControl>
         <FormControl isInvalid={Boolean(errors.password)}>
-          <FormLabel className="text-black">Пароль *</FormLabel>
+          <FormLabel className="text-white">Пароль *</FormLabel>
           <Input
             placeholder="••••••••"
             type="password"
@@ -102,7 +102,7 @@ export default function Page() {
             })}
             size="sm"
             variant="flushed"
-            className="text-black"
+            className="text-white"
           />
           {errors.email && <p className="text-red">{errors.email.message}</p>}
         </FormControl>
