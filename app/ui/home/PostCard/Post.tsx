@@ -37,6 +37,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
                 priority
                 width={40}
                 height={40}
+                className="min-w-10 min-h-10"
                 alt="user"
               />
             </div>
