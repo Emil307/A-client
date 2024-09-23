@@ -3,9 +3,9 @@ import { getCookie } from "@/app/lib/coockies";
 
 const API = process.env.NEXT_PUBLIC_API_URL;
 
-export async function getPosts() {
+export async function getPosts(offset: number, limit: number) {
   const data = await axios({
-    url: `${API}/posts/`,
+    url: `${API}/posts/?offset=${offset}&limit=${limit}`,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
